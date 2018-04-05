@@ -4,7 +4,7 @@ Find out what your MEP says in the European Parliament
 
 The interactive database "MEPs' Speeches in Plenary" is designed to help journalists, experts, activists, and citizens track political debates in the European Parliament.
 
-The "MEPs' Speeches in Plenary" collects and lets you browse through MEPs plenary statements of the 2014-2019 term (both in speech and in writing). The main functionality is filtering MEPs statements using keywords (e.g. 'migration', 'energy union', etc.). The tool allows filtering the statements also by date, party or faction. The results of a query can be downloaded to a .csv file and visualised on graphs and charts. Soon, the tool will also collect data from the two previous terms to allow tracking MEPs' statements since the 2004 enlargement of the EU.
+The "MEPs' Speeches in Plenary" collects and lets you browse through MEPs plenary statements of the 2004-2019 terms (both in speech and in writing). The main functionality is filtering MEPs statements using keywords (e.g. 'migration', 'energy union', etc.). The tool allows filtering the statements also by date, party or faction. The results of a query can be downloaded to a .csv file and visualised on graphs and charts. Soon, the tool will also collect data from the two previous terms to allow tracking MEPs' statements since the 2004 enlargement of the EU.
 
 The interactive database has been developed by MamPrawoWiedziec.pl in cooperation with the MI^2 group lead by Przemysław Biecek, a data scientist and a professor at the University of Warsaw and the Warsaw University of Technology. It has been created in R and R/Shiny. 
 

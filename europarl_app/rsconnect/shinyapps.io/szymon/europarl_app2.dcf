@@ -1,0 +1,13 @@
+name: europarl_app2
+title: europarl_app2
+username:
+account: szymon
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 226226
+bundleId: 1227725
+url: https://szymon.shinyapps.io/europarl_app2/
+when: 1518890028.95052
+asMultiple: FALSE
+asStatic: FALSE
+ignoredFiles: .RData|frakcje.csv|frakcje.xlsx

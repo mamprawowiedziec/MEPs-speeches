@@ -1,0 +1,67 @@
+SELECT `date_beginning`, IFNULL(`date_end`, '2100-01-01') as data_end, 
+`deputies_id`, `full_name`
+FROM `eu_party`
+
+CREATE VIEW tdeputies_8 AS 
+SELECT id, name, nationality, link FROM deputies
+LEFT JOIN term_of_office 
+ON deputies.id = term_of_office.deputies_id 
+WHERE term_of_office.term = 8
+
+CREATE VIEW eu_group AS 
+SELECT `date_beginning`, IFNULL(`date_end`, '2100-01-01') as data_end, 
+`deputies_id`, `full_name`
+FROM `eu_party`
+
+
+SELECT * FROM 
+(SELECT id, name, nationality, link FROM deputies
+LEFT JOIN term_of_office 
+ON deputies.id = term_of_office.deputies_id 
+WHERE term_of_office.term = 8) mep
+RIGHT JOIN statements 
+ON statements.deputies_id = mep.id\
+
+
+SELECT stm_dep.* eu_group.* FROM
+(SELECT statements.*, mep.name, mep.nationality, mep.link as mep_link  FROM 
+(SELECT id , name, nationality, link FROM deputies
+LEFT JOIN term_of_office 
+ON deputies.id = term_of_office.deputies_id 
+WHERE term_of_office.term = 8) mep
+RIGHT JOIN statements 
+ON statements.deputies_id = mep.id) stm_dep
+LEFT JOIN (SELECT `date_beginning`, IFNULL(`date_end`, '2100-01-01') as data_end, 
+`deputies_id`, `full_name`
+FROM `eu_party`) eu_group 
+ON eu_group.deputies_id = stm_mep.deputies_id 
+WHERE
+
+
+
+SELECT stm.*, national_party.full_name as national_aprty_full_name FROM (
+	SELECT stm_all.*, eu_party_code.id as eu_party_code FROM
+		(SELECT stm_dep.*, eu_group.full_name as eu_group_full_name FROM
+			(SELECT statements.*, mep.name, mep.nationality, mep.link as mep_link  FROM 
+				(SELECT id , name, nationality, link FROM deputies
+				LEFT JOIN term_of_office 
+				ON deputies.id = term_of_office.deputies_id 
+				WHERE term_of_office.term = 8) mep
+			RIGHT JOIN statements 
+			ON statements.deputies_id = mep.id) stm_dep
+		LEFT JOIN 
+			(SELECT `date_beginning`, IFNULL(`date_end`, '2100-01-01') as data_end, 
+			`deputies_id`, `full_name`
+			FROM `eu_party`) eu_group 
+		ON eu_group.deputies_id = stm_dep.deputies_id 
+		WHERE eu_group.date_beginning <= stm_dep.date AND eu_group.data_end >= stm_dep.date
+		) stm_all
+		LEFT JOIN eu_party_code
+		ON stm_all.eu_group_full_name = eu_party_code.full_name
+	) stm
+LEFT JOIN 
+		(SELECT `date_beginning`, IFNULL(`date_end`, '2100-01-01') as data_end, 
+		`deputies_id`, `full_name`
+		FROM `national_party`) national_party 
+ON national_party.deputies_id = stm.deputies_id 
+WHERE national_party.date_beginning <= stm.date AND national_party.data_end >= stm.date

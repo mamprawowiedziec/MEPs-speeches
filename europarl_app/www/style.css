@@ -1,0 +1,33 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto|Cabin:400,500,700,900"');
+
+body {
+  font-family: "Roboto",sans-serif;
+  margin: 0 20px;
+}
+
+img {
+  max-width: 100%;
+}
+
+h2 {
+  width: 100%;
+  height: auto;
+  font-weight: bold;
+}
+
+.search-well {
+  width: 650px;
+  margin: 5px auto;
+}
+
+.shiny-flow-layout {
+  margin-top: 25px;
+}
+
+
+label[for=nationality_filter],
+label[for=eugroup_filter],
+label[for=lang_filter] {
+  font-weight: bold;
+  color: Red;
+}

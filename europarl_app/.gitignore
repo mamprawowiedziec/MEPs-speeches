@@ -1,0 +1,11 @@
+.Rproj.user
+.Rhistory
+.RData
+.Ruserdata
+*.xlsx
+*.csv
+stats.R
+temporary.R
+db_config.txt
+rsconnect/shinyapps.io/szymon/europarl_app.dcf
+
